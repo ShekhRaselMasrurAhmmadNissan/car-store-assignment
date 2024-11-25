@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.post('/', CarController.saveCar);
 router.get('/', CarController.getAllCarData);
+router.get('/:carID', CarController.getSingleCarData);
 
 // exporting the Router
 export const CarRoutes = router;

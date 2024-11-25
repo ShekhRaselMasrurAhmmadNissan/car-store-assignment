@@ -9,13 +9,24 @@ const savingCarToDB = async (car: ICar) => {
 	return result;
 };
 
+/**
+ * @param terms --> Terms to run the search query. If not provided then this will find all the data from the database
+ */
 const getAllCarDataFromDB = async (terms: {} | null) => {
-	console.log(terms);
 	const result = await Car.find(terms || {});
+	return result;
+};
+
+/**
+ * @param id --> This will search the data with the matching ID
+ */
+const getSingleCarFromDB = async (id: string) => {
+	const result = await Car.findById(id);
 	return result;
 };
 
 export const CarServices = {
 	savingCarToDB,
 	getAllCarDataFromDB,
+	getSingleCarFromDB,
 };
