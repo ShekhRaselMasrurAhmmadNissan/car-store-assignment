@@ -2,6 +2,8 @@ import { query, Request, Response } from 'express';
 import generateErrorMessage from '../../generators/errorMessage';
 import generateNotFoundMessage from '../../generators/notFoundMessage';
 import generateSuccessMessage from '../../generators/successMessage';
+import { ICar } from './car.interfaces';
+import { Car } from './car.model';
 import { CarServices } from './car.service';
 
 // * Saving a Car in the Database
@@ -53,8 +55,27 @@ const getSingleCarData = async (req: Request, res: Response) => {
 	}
 };
 
+const updateSingleCarData = async (req: Request, res: Response) => {
+	try {
+		const carID = req.params.carID;
+		const data = req.body;
+
+		if (!(await Car.isCarExists(carID))) {
+			res.status(404).json(generateNotFoundMessage(`Car not found`));
+		} else {
+			const result = await CarServices.updateSingleCarFromDB(carID, data);
+			res.status(200).json(
+				generateSuccessMessage(`Car updated successfully`, result),
+			);
+		}
+	} catch (error: any) {
+		res.status(400).json(generateErrorMessage(error));
+	}
+};
+
 export const CarController = {
 	saveCar,
 	getAllCarData,
 	getSingleCarData,
+	updateSingleCarData,
 };
