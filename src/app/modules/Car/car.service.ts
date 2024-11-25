@@ -25,14 +25,27 @@ const getSingleCarFromDB = async (id: string) => {
 	return result;
 };
 
+/**
+ * @param id --> This will search the data with the matching ID
+ * @param data --> This is the data that is to be updated
+ */
 const updateSingleCarFromDB = async (id: string, data: Partial<ICar>) => {
 	const result = await Car.findByIdAndUpdate(id, data, { new: true });
 	return result;
 };
 
+/**
+ * @param id --> This is ID of the data that is to be deleted.
+ */
+const deleteCarFromDB = async (id: string) => {
+	const result = await Car.findByIdAndDelete(id);
+	console.log(result);
+	return result;
+};
 export const CarServices = {
 	savingCarToDB,
 	getAllCarDataFromDB,
 	getSingleCarFromDB,
 	updateSingleCarFromDB,
+	deleteCarFromDB,
 };
