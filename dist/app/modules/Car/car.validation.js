@@ -10,7 +10,7 @@ const saveCarValidationSchema = zod_1.z.object({
     price: zod_1.z.number().positive('Price must be a positive number'),
     category: zod_1.z.nativeEnum(car_interfaces_1.Category),
     description: zod_1.z.string().nonempty('Description is required'),
-    quantity: zod_1.z.number().int().min(0, 'Quantity cannot be less than'),
+    quantity: zod_1.z.number().int().min(0, 'Quantity cannot be less than 0'),
     inStock: zod_1.z.boolean().optional().default(true),
 });
 // * Validation of updating the car
@@ -28,7 +28,7 @@ const updateCarValidationSchema = zod_1.z.object({
     quantity: zod_1.z
         .number()
         .int()
-        .min(0, 'Quantity cannot be less than')
+        .min(0, 'Quantity cannot be less than 0')
         .optional(),
     inStock: zod_1.z.boolean().optional().default(true),
 });
