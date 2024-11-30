@@ -75,6 +75,12 @@ const updateSingleCarData = async (req: Request, res: Response) => {
 		if (!(await Car.isCarExists(carID))) {
 			res.status(404).json(generateNotFoundMessage(`Car not found`));
 		} else {
+			if (zodParseData?.quantity && zodParseData?.quantity === 0) {
+				zodParseData.inStock = false;
+			}
+			if (zodParseData?.quantity && zodParseData?.quantity >= 0) {
+				zodParseData.inStock = true;
+			}
 			const result = await CarServices.updateSingleCarFromDB(
 				carID,
 				zodParseData,
