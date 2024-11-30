@@ -15,7 +15,7 @@ export interface ICar {
 	model: string;
 	year: number;
 	price: number;
-	category: string;
+	category: Category;
 	description: string;
 	quantity: number;
 	inStock: boolean;
