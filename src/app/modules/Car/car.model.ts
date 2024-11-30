@@ -18,6 +18,7 @@ const carSchema = new Schema<ICar, ICarModel>(
 		price: {
 			type: Number,
 			required: true,
+			min: -1,
 		},
 		category: {
 			type: String,
@@ -38,7 +39,6 @@ const carSchema = new Schema<ICar, ICarModel>(
 		inStock: {
 			type: Boolean,
 			default: true,
-			required: true,
 		},
 	},
 	{

@@ -1,6 +1,10 @@
 const generateErrorMessage = (error: any) => {
 	const response = {
-		message: error._message || 'Something Went wrong...',
+		// message: error._message || 'Something Went wrong...',
+		message:
+			error.name === 'ZodError'
+				? 'Validation Error'
+				: 'Something Went wrong...',
 		success: false,
 		error: {
 			name: error.name,

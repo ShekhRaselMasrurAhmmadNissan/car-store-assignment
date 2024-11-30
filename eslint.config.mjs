@@ -3,7 +3,7 @@ import pluginJs from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
 	{ files: ['**/*.{js,mjs,cjs,ts}'] },

@@ -7,7 +7,7 @@ const orderValidationSchema = z.object({
 		message: 'Invalid ObjectId for car',
 	}),
 	quantity: z.number().min(1, { message: 'Quantity must be at least 1' }),
-	price: z
+	totalPrice: z
 		.number()
 		.min(0, { message: 'Price must be a non-negative number' }),
 });

@@ -6,6 +6,7 @@ import { Car } from '../Car/car.model';
 import { CarServices } from '../Car/car.service';
 import { Order } from './order.model';
 import { OrderServices } from './order.service';
+import orderValidationSchema from './order.validation';
 
 const placeOrder = async (req: Request, res: Response) => {
 	try {
@@ -27,11 +28,11 @@ const placeOrder = async (req: Request, res: Response) => {
 					quantity: newQuantity,
 					inStock: newInStock,
 				};
-				const carUpdate = await CarServices.updateSingleCarFromDB(
-					order.car,
-					newCarInfo,
-				);
-				const result = await OrderServices.placeOrderToDB(order);
+				await CarServices.updateSingleCarFromDB(order.car, newCarInfo);
+
+				const zodParseData = orderValidationSchema.parse(order);
+
+				const result = await OrderServices.placeOrderToDB(zodParseData);
 				res.status(200).json(
 					generateSuccessMessage(
 						`Order created successfully`,
