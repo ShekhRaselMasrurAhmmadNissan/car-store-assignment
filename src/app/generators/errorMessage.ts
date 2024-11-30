@@ -1,3 +1,9 @@
+/**
+ *
+ * @param error
+ * @returns An error message that will match the given format
+ */
+
 const generateErrorMessage = (error: any) => {
 	const response = {
 		// message: error._message || 'Something Went wrong...',

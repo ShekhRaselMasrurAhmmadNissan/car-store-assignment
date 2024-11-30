@@ -8,6 +8,7 @@ import { Order } from './order.model';
 import { OrderServices } from './order.service';
 import orderValidationSchema from './order.validation';
 
+// * Placing Order
 const placeOrder = async (req: Request, res: Response) => {
 	try {
 		const order = req.body;
@@ -46,6 +47,7 @@ const placeOrder = async (req: Request, res: Response) => {
 	}
 };
 
+// * Calculate Total Revenue
 const calculateTotalRevenue = async (req: Request, res: Response) => {
 	try {
 		const result = await OrderServices.calculateTotalRevenueOfOrder();

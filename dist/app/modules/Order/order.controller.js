@@ -20,6 +20,7 @@ const car_model_1 = require("../Car/car.model");
 const car_service_1 = require("../Car/car.service");
 const order_service_1 = require("./order.service");
 const order_validation_1 = __importDefault(require("./order.validation"));
+// * Placing Order
 const placeOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const order = req.body;
@@ -50,6 +51,7 @@ const placeOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(400).json((0, errorMessage_1.default)(error));
     }
 });
+// * Calculate Total Revenue
 const calculateTotalRevenue = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield order_service_1.OrderServices.calculateTotalRevenueOfOrder();

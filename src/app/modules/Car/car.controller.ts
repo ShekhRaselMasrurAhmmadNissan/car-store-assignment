@@ -88,6 +88,7 @@ const updateSingleCarData = async (req: Request, res: Response) => {
 	}
 };
 
+// * Delete Single Car Data from the Database
 const deleteCarData = async (req: Request, res: Response) => {
 	try {
 		const carID = req.params.carID;

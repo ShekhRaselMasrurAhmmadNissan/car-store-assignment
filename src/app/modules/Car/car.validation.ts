@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { Category } from './car.interfaces';
 
+// * validation of saving the car
 const saveCarValidationSchema = z.object({
 	brand: z.string().nonempty('Brand is required'),
 	model: z.string().nonempty('Model is required'),
@@ -12,6 +13,7 @@ const saveCarValidationSchema = z.object({
 	inStock: z.boolean().optional().default(true),
 });
 
+// * Validation of updating the car
 const updateCarValidationSchema = z.object({
 	brand: z.string().nonempty('Brand is required').optional(),
 	model: z.string().nonempty('Model is required').optional(),

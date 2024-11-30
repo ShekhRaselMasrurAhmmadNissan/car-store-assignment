@@ -3,6 +3,9 @@ import { OrderController } from './order.controller';
 
 const router = express.Router();
 
+/**
+ * Routes
+ */
 router.post('/', OrderController.placeOrder);
 router.get('/revenue', OrderController.calculateTotalRevenue);
 

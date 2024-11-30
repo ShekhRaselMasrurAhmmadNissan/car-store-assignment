@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
+// * Order Validation Schema
 const orderValidationSchema = z.object({
 	email: z.string().email({ message: 'Invalid email address' }),
 	car: z.string().refine((value) => mongoose.Types.ObjectId.isValid(value), {

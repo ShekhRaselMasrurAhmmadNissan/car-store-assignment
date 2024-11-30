@@ -11,10 +11,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderServices = void 0;
 const order_model_1 = require("./order.model");
+/**
+ *
+ * @param order
+ * This function is used to place an order
+ */
 const placeOrderToDB = (order) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield order_model_1.Order.create(order);
     return result;
 });
+/**
+ *
+ * This function is used to calculate total revenue
+ */
 const calculateTotalRevenueOfOrder = () => __awaiter(void 0, void 0, void 0, function* () {
     // Aggregate to calculate the sum of all the orders totalPrice field and store it in a new field called totalRevenue to return only
     const result = yield order_model_1.Order.aggregate([

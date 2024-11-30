@@ -85,6 +85,7 @@ const updateSingleCarData = (req, res) => __awaiter(void 0, void 0, void 0, func
         res.status(400).json((0, errorMessage_1.default)(error));
     }
 });
+// * Delete Single Car Data from the Database
 const deleteCarData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const carID = req.params.carID;

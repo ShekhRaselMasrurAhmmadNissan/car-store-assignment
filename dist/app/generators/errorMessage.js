@@ -1,4 +1,9 @@
 "use strict";
+/**
+ *
+ * @param error
+ * @returns An error message that will match the given format
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 const generateErrorMessage = (error) => {
     const response = {

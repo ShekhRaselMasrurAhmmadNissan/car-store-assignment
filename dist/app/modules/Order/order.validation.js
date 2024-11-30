@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const zod_1 = require("zod");
+// * Order Validation Schema
 const orderValidationSchema = zod_1.z.object({
     email: zod_1.z.string().email({ message: 'Invalid email address' }),
     car: zod_1.z.string().refine((value) => mongoose_1.default.Types.ObjectId.isValid(value), {
