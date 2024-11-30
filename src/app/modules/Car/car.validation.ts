@@ -9,7 +9,7 @@ const saveCarValidationSchema = z.object({
 	price: z.number().positive('Price must be a positive number'),
 	category: z.nativeEnum(Category),
 	description: z.string().nonempty('Description is required'),
-	quantity: z.number().int().min(0, 'Quantity cannot be less than'),
+	quantity: z.number().int().min(0, 'Quantity cannot be less than 0'),
 	inStock: z.boolean().optional().default(true),
 });
 
@@ -28,7 +28,7 @@ const updateCarValidationSchema = z.object({
 	quantity: z
 		.number()
 		.int()
-		.min(0, 'Quantity cannot be less than')
+		.min(0, 'Quantity cannot be less than 0')
 		.optional(),
 	inStock: z.boolean().optional().default(true),
 });
