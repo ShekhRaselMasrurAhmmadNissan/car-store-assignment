@@ -6,6 +6,7 @@
 -   [Features](#features)
 -   [Tech Stack](#tech-stack)
 -   [Dependencies](#dependencies)
+-   [Installation](#installation)
 -   [Usage Instructions](#usage-instructions)
 -   [Contact](#contact)
 
@@ -50,6 +51,32 @@ Car Store is a backend system that allows users to:
 -   **Cors**: Solves cross-platform issues
 
 ---
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/ShekhRaselMasrurAhmmadNissan/car-store-assignment
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd car-store-assignment
+    ```
+3. Install Dependencies:
+    ```bash
+    npm i
+    ```
+4. Create env file:
+    ```env
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    ```
+    - Replace your_mongodb_connection_string with your actual MongoDB URI.
+5. Start the development server:
+    ```bash
+    npm run start:dev
+    ```
+    `The server will start on http://localhost:5000.`
 
 ## Usage Instructions
 
