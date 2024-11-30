@@ -77,6 +77,12 @@ const updateSingleCarData = (req, res) => __awaiter(void 0, void 0, void 0, func
             res.status(404).json((0, notFoundMessage_1.default)(`Car not found`));
         }
         else {
+            if ((zodParseData === null || zodParseData === void 0 ? void 0 : zodParseData.quantity) && (zodParseData === null || zodParseData === void 0 ? void 0 : zodParseData.quantity) === 0) {
+                zodParseData.inStock = false;
+            }
+            if ((zodParseData === null || zodParseData === void 0 ? void 0 : zodParseData.quantity) && (zodParseData === null || zodParseData === void 0 ? void 0 : zodParseData.quantity) >= 0) {
+                zodParseData.inStock = true;
+            }
             const result = yield car_service_1.CarServices.updateSingleCarFromDB(carID, zodParseData);
             res.status(200).json((0, successMessage_1.default)(`Car updated successfully`, result));
         }
